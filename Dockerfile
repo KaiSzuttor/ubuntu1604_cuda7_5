@@ -1,4 +1,4 @@
-FROM kaiszuttor/docker:ubuntu1604_boost_1_61_0
+FROM kaiszuttor/ubuntu1604_boost_1_61_0:latest
 MAINTAINER Kai Szuttor <kai@icp.uni-stuttgart.de>
 
 LABEL com.nvidia.volumes.needed="nvidia_driver"
