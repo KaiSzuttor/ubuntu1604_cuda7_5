@@ -8,6 +8,9 @@ LABEL com.nvidia.cuda.version="${CUDA_VERSION}"
 
 USER root
 
+RUN apt-get update && apt-get install -y \
+    curl
+
 RUN wget http://developer.download.nvidia.com/compute/cuda/7.5/Prod/local_installers/cuda_7.5.18_linux.run && \
     bash cuda_7.5.18_linux.run --toolkit --silent --override && \
     rm cuda_7.5.18_linux.run
