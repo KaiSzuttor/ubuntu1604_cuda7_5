@@ -13,8 +13,9 @@ RUN apt-get update && apt-get install -y \
     perl \
     module-init-tools \
     libbz2-ocaml-dev \
-    g++-4.9 gcc-4.9
+    g++-4.9 gcc-4.9 \
     curl
+
 RUN cd /usr/bin  && rm gcc g++ && ln -s gcc-4.9 gcc && ln -s g++-4.9 g++
 
 RUN wget http://developer.download.nvidia.com/compute/cuda/7.5/Prod/local_installers/cuda_7.5.18_linux.run && \
