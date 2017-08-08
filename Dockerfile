@@ -1,4 +1,4 @@
-FROM espressomd/buildenv-espresso-ubuntu:python
+FROM kaiszuttor/ubuntu1604_boost:latest
 MAINTAINER Kai Szuttor <kai@icp.uni-stuttgart.de>
 
 LABEL com.nvidia.volumes.needed="nvidia_driver"
@@ -9,16 +9,15 @@ LABEL com.nvidia.cuda.version="${CUDA_VERSION}"
 USER root
 
 RUN apt-get update && apt-get install -y \
-    wget \
-    perl \
-    module-init-tools \
-    libbz2-ocaml-dev \
     g++-4.9 gcc-4.9 \
-    curl
+    curl \
+&& pip2 install cython sphinx sphinxcontrib-bibtex numpydoc --upgrade \
+&& apt-get clean \
+&& rm -rf /var/lib/apt/lists/*
 
 RUN cd /usr/bin  && rm gcc g++ && ln -s gcc-4.9 gcc && ln -s g++-4.9 g++
 
-RUN wget http://developer.download.nvidia.com/compute/cuda/7.5/Prod/local_installers/cuda_7.5.18_linux.run && \
+RUN wget --no-verbose http://developer.download.nvidia.com/compute/cuda/7.5/Prod/local_installers/cuda_7.5.18_linux.run && \
     bash cuda_7.5.18_linux.run --toolkit --silent --override && \
     rm cuda_7.5.18_linux.run
 
