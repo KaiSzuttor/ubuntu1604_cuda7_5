@@ -1,4 +1,4 @@
-This image is used to build ESPResSo with CUDA-7.5 and boost-1.58.0 with
+This image is used to build ESPResSo with CUDA-7.5 and boost with
 gcc-4.9 under ubuntu-16.04.
 
 Please run the container with 'nvidia-docker' or give access to the hardware
