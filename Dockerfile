@@ -11,6 +11,9 @@ USER root
 RUN apt-get update && apt-get install -y \
     g++-4.9 gcc-4.9 \
     curl \
+    doxygen \
+    python-pip \
+&& pip2 install --upgrade pip \
 && pip2 install cython sphinx sphinxcontrib-bibtex numpydoc --upgrade \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/*
